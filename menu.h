@@ -51,12 +51,13 @@ void menu(int i)
   //Serial.println(menu_start_read_pos[5]);
   //Serial.println(menu_start_read_pos[6]);
 
-  //Serial.println(menu_selection_tracker);
+  Serial.println(menu_selection_tracker);
   menu_selection_tracker = selected_menu_option + menu_scroll_offset;
   menu_scroll_offset_inv = ((menu_scroll_offset-1)*(-1))+1;
 
 n=0;
 b=0;
+b=b+menu_scroll_offset;
 a=1;
   do //6x
   {
@@ -78,10 +79,11 @@ do{display.print(read_menu_options[menu_start_read_pos[b]+a]); a=a+1;//}
    // r = r + 1;
  //  b=b+1;
   }
-  while (b != menu_options-1);
+  while (b-2 < (menu_options-menu_scroll_offset)-menu_scroll_offset_inv);
 
 
 Serial.println(b);
+Serial.println(menu_scroll_offset);
 
 
    
