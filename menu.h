@@ -61,25 +61,12 @@ b=b+menu_scroll_offset;
 a=1;
   do //6x
   {
-    
-display.setCursor(8, c);
-c = c + 16;
-do{display.print(read_menu_options[menu_start_read_pos[b]+a]); a=a+1;//}
-}while(a!=menu_options_lenght[b]+1);display.println();a=1;b=b+1;
-
-
-   //do
-   // { //6x - until all nmbers are written
-    //  display.setCursor(8, c);
-   //   n = n + 1;
-   //   c = c + 16;
-   //   display.println((n + menu_scroll_offset)-1);
-   // }
-   // while (n < (menu_options-menu_scroll_offset)-menu_scroll_offset_inv);
-   // r = r + 1;
- //  b=b+1;
+     display.setCursor(8, c);
+     c = c + 16;
+     do{display.print(read_menu_options[menu_start_read_pos[b]+a]); Serial.print(read_menu_options[menu_start_read_pos[b]+a]); a=a+1;//}
+     }while(a!=menu_options_lenght[b]+1);display.println();a=1;b=b+1; Serial.println();
   }
-  while (b-2 < (menu_options-menu_scroll_offset)-menu_scroll_offset_inv);
+  while (b-menu_scroll_offset < (menu_options-menu_scroll_offset)-menu_scroll_offset_inv);
 
 
 Serial.println(b);
