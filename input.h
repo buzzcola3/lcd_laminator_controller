@@ -108,16 +108,16 @@ void input_check_handler()
     };
   }
 
-    if (button_hold == true && button_hold_multiplier == 0 && button_action == 'K')
-  { if (open_menu == false) {
-
-
+  if (button_hold == true && button_hold_multiplier == 0 && button_action == 'K')
+  { if (open_menu == false && millis() - button_timer >= 600) {
+      open_menu = true;
+      button_timer = millis();
     }
     if (open_menu == true && menu_selection_tracker == 6) {
-    open_menu = false;
-    //display_homescreen();
-    previous_button_action = button_action;
-    button_action = '0';
+      open_menu = false;
+      //display_homescreen();
+      previous_button_action = button_action;
+      button_action = '0';
     };
   }
 

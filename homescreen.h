@@ -1,4 +1,4 @@
-void display_homescreen(void)
+void display_homescreen()
 {
   display.clearDisplay();
 

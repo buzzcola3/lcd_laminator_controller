@@ -51,6 +51,7 @@ void read_out_menu()
      }while(a!=menu_options_lenght[b]+1);display.println();a=1;b=b+1;
   }
   while (b-menu_scroll_offset < (menu_options-menu_scroll_offset)-menu_scroll_offset_inv);
+  display.display();
 }
 
 void write_cursor_to_screen()
