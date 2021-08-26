@@ -13,7 +13,10 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
 #define rps 30 //display and pressure refreshes per second
 
+
 #define menu_options 6
+
+#define menu_exit 1
 char read_menu_options[] =
 {
   '3', 's', 'u', 'c',
@@ -21,7 +24,7 @@ char read_menu_options[] =
   '4', 'd', 'e', 'e', 'z',
   '4', 'n', 'u', 't', 'z',
   '1', 'u',
-  '7', 's', 'u', 'c', 'k', 'e', 'r', 's',
+  '4', 'e', 'x', 'i', 't',
 };
 
 unsigned long pr_timer;
@@ -44,7 +47,7 @@ int cur_temp;
 unsigned long value_add_timer;
 
 bool open_menu;
-int selected_menu_option;
+int cursor_position_on_display;
 int menu_scroll_offset;
 int menu_scroll_offset_inv;
 int menu_selection_tracker;
@@ -89,7 +92,7 @@ void setup() {
   cur_temp = 0; //read
 
   open_menu = false;
-  selected_menu_option = 1;
+  cursor_position_on_display = 1;
   menu_scroll_offset = 0;
   menu_scroll_offset_inv = 0;
   menu_selection_tracker = 0;

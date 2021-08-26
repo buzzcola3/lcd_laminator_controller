@@ -62,7 +62,7 @@ void write_cursor_to_screen()
   int c = 0;
   int e = 0;
   int r = 0;
-  int i = selected_menu_option;
+  int i = cursor_position_on_display;
 
     do {
     r = r + 1;

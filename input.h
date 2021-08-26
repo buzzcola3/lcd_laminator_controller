@@ -89,7 +89,7 @@ void input_check_handler()
       button_action = '0';
     }
     if (open_menu == true && menu_selection_tracker < menu_options) {
-      selected_menu_option = selected_menu_option + 1;
+      cursor_position_on_display = cursor_position_on_display + 1;
       previous_button_action = button_action;
       button_action = '0';
     };
@@ -102,7 +102,7 @@ void input_check_handler()
       button_action = '0';
     }
     if (open_menu == true && menu_selection_tracker > 1) {
-      selected_menu_option = selected_menu_option - 1;
+      cursor_position_on_display = cursor_position_on_display - 1;
       previous_button_action = button_action;
       button_action = '0';
     };
@@ -110,17 +110,17 @@ void input_check_handler()
 
   if (button_hold == true && button_hold_multiplier == 0 && button_action == 'K')
   { if (open_menu == false && millis() - button_timer >= 600) {
-      selected_menu_option = 1;
+      cursor_position_on_display = 1;
       menu_selection_tracker = 1;
       menu_scroll_offset = 0;
+      button_action = '0';
       open_menu = true;
       button_timer = millis();
       
      
     }
-    if (open_menu == true && menu_selection_tracker == 6) {
+    if (open_menu == true && button_action == 'K' && menu_selection_tracker == menu_exit) {
       open_menu = false;
-      //display_homescreen();
       previous_button_action = button_action;
       button_action = '0';
     };
