@@ -53,7 +53,7 @@ void read_out_menu()
   while (b-menu_scroll_offset < (menu_options-menu_scroll_offset)-menu_scroll_offset_inv);
 }
 
-void read_out_cursor()
+void write_cursor_to_screen()
 {
   int c = 0;
   int e = 0;

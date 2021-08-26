@@ -53,8 +53,7 @@ int menu_options_lenght[menu_options];
 
 #include "get_pressure.h"
 #include "input.h"
-#include "display.h"
-#include "tempreature_set.h"
+#include "homescreen.h"
 #include "PID.h"
 #include "menu_get.h"
 #include "menu.h"
@@ -111,7 +110,7 @@ void loop() {
     }
 
     if (open_menu == false) {
-      testdrawstyles();
+      display_homescreen();
     } else(menu());
   }
   if (press_detected == true) {

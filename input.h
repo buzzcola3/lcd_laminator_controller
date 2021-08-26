@@ -115,7 +115,7 @@ void input_check_handler()
     }
     if (open_menu == true && menu_selection_tracker == 6) {
     open_menu = false;
-    //testdrawstyles();
+    //display_homescreen();
     previous_button_action = button_action;
     button_action = '0';
     };

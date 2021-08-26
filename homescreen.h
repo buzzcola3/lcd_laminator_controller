@@ -1,4 +1,4 @@
-void testdrawstyles(void)
+void display_homescreen(void)
 {
   display.clearDisplay();
 

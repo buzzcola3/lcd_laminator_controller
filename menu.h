@@ -19,6 +19,6 @@ void menu()
   menu_scroll_offset_inv = ((menu_scroll_offset - 1) * (-1)) + 1;
 
   read_out_menu();
-  read_out_cursor();
+  write_cursor_to_screen();
 
 }
