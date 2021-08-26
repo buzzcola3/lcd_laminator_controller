@@ -102,7 +102,7 @@ void loop() {
 
     if (open_menu == false) {
       testdrawstyles();
-    } else(menu(selected_menu_option));
+    } else(menu());
   }
   if (press_detected == true) {
     button_input_leadin();
