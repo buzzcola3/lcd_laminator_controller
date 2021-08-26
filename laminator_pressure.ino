@@ -16,12 +16,12 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 #define menu_options 6
 char read_menu_options[] =
 {
-  '3', 's','u', 'c',
+  '3', 's', 'u', 'c',
   '2', 'o', 'n',
-  '4', 'd','e','e','z',
-  '4', 'n','u','t','z',
+  '4', 'd', 'e', 'e', 'z',
+  '4', 'n', 'u', 't', 'z',
   '1', 'u',
-  '7', 's', 'u', 'c', 'k','e','r','s',
+  '7', 's', 'u', 'c', 'k', 'e', 'r', 's',
 };
 
 unsigned long pr_timer;
@@ -47,7 +47,7 @@ bool open_menu;
 int selected_menu_option;
 int menu_scroll_offset;
 int menu_scroll_offset_inv;
-int menu_selection_tracker = 0;
+int menu_selection_tracker;
 int menu_start_read_pos[menu_options];
 int menu_options_lenght[menu_options];
 
@@ -94,9 +94,9 @@ void setup() {
   menu_scroll_offset_inv = 0;
   menu_selection_tracker = 0;
   //menu_timer
-  
-  
-  
+
+
+
   get_menu_options_endpoints();
   get_menu_options_endpoint_distance();
 }
@@ -104,23 +104,25 @@ void setup() {
 void loop() {
   if (millis() - pr_timer >= (1000 / (rps * 1000)))
   {
-    
-  }
-
-input_check_handler();
-
     if (open_menu == false) {
       display_homescreen();
     } else(menu());
-  
+    input_check_handler();
+    Serial.println(menu_selection_tracker);
+    Serial.print("open_menu:");
+    Serial.println(open_menu);
+  }
+
+
+
   if (press_detected == true) {
     button_input_leadin();
   }
   if (button_hold == true) {
     hold_count();
   }
-  
-    input_check_handler();
-  
+
+  input_check_handler();
+
   PID();
 }

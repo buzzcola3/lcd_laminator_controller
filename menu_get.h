@@ -42,6 +42,10 @@ do{
 
 void read_out_menu()
 {
+  display.clearDisplay();
+  display.setTextSize(2);
+  display.setTextColor(SSD1306_WHITE);
+  
  int a=1; int b=0; int c=0; int n=0;b=b+menu_scroll_offset;
   do
   {
@@ -51,7 +55,6 @@ void read_out_menu()
      }while(a!=menu_options_lenght[b]+1);display.println();a=1;b=b+1;
   }
   while (b-menu_scroll_offset < (menu_options-menu_scroll_offset)-menu_scroll_offset_inv);
-  display.display();
 }
 
 void write_cursor_to_screen()

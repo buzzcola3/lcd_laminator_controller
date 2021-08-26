@@ -10,9 +10,7 @@ void menu()
     menu_scroll_offset = menu_scroll_offset + 1;
   }
 
-  display.clearDisplay();
-  display.setTextSize(2);
-  display.setTextColor(SSD1306_WHITE);
+
 
   Serial.println(menu_selection_tracker);
   menu_selection_tracker = selected_menu_option + menu_scroll_offset;
