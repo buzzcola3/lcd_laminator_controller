@@ -14,6 +14,16 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 #define rps 30 //display and pressure refreshes per second
 #define menu_options 6
 
+char read_menu_options[] =
+{
+  '3', 's','u', 'c',
+  '2', 'o', 'n',
+  '4', 'd','e','e','z',
+  '4', 'n','u','t','z',
+  '1', 'u',
+  '7', 's', 'u', 'c', 'k','e','r','s',
+};
+
 unsigned long pr_timer;
 int pr_count;
 int pr_value;
@@ -110,10 +120,10 @@ void loop() {
   if (button_hold == true) {
     hold_count();
   }
-  if (open_menu == false) {
-    temp_set();
-  }
-  else(menu_button());
+  
+    input_check_handler();
+  
+ 
 
 
   PID();

@@ -1,13 +1,3 @@
-char read_menu_options[] =
-{
-  '3', 's','u', 'c',
-  '2', 'o', 'n',
-  '4', 'd','e','e','z',
-  '4', 'n','u','t','z',
-  '1', 'u',
-  '7', 's', 'u', 'c', 'k','e','r','s',
-};
-
 void get_menu_options_endpoints()
 {
 
