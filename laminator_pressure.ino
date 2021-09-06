@@ -55,6 +55,7 @@ int menu_start_read_pos[menu_options];
 int menu_options_lenght[menu_options];
 
 #include "get_pressure.h"
+#include "get_tempreature.h"
 #include "input.h"
 #include "homescreen.h"
 #include "PID.h"

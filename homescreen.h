@@ -15,9 +15,11 @@ void display_homescreen()
   //display.println(pr_smooth);
   display.print(temp); display.println("C");
   display.println(previous_button_action);
-  if (button_hold == true) {
-    display.println(millis() - button_timer);
-  } else (display.println("0"));
+  //if (button_hold == true) {
+  //  display.println(millis() - button_timer);
+  //} else (display.println("0"));
+  display.println(read_tempreature(A2));
+  
   display.display();
   pr_timer = millis();
 }
