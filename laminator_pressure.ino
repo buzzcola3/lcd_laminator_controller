@@ -54,6 +54,7 @@ int menu_selection_tracker;
 int menu_start_read_pos[menu_options];
 int menu_options_lenght[menu_options];
 
+#include "EEPROM_managment.h"
 #include "get_pressure.h"
 #include "get_tempreature.h"
 #include "input.h"
@@ -63,6 +64,7 @@ int menu_options_lenght[menu_options];
 #include "menu.h"
 
 void setup() {
+
   Serial.begin(9600);
   pinMode(A3, INPUT);
 
@@ -103,6 +105,8 @@ void setup() {
 
   get_menu_options_endpoints();
   get_menu_options_endpoint_distance();
+
+  Serial.println(find_EEPROM_endpoint());
 }
 
 void loop() {

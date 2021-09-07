@@ -13,6 +13,7 @@ void menu()
 
 
   Serial.println(menu_selection_tracker);
+  Serial.println(find_EEPROM_endpoint());
   menu_selection_tracker = cursor_position_on_display + menu_scroll_offset;
   menu_scroll_offset_inv = ((menu_scroll_offset - 1) * (-1)) + 1;
 
