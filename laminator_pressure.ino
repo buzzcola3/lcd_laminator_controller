@@ -14,17 +14,25 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 #define rps 30 //display and pressure refreshes per second
 
 
-#define menu_options 6
-
-#define menu_exit 1
+#define menu_options 5
+#define menu_exit 5
 char read_menu_options[] =
 {
-  '3', 's', 'u', 'c',
   '2', 'o', 'n',
   '4', 'd', 'e', 'e', 'z',
   '4', 'n', 'u', 't', 'z',
   '1', 'u',
   '4', 'e', 'x', 'i', 't',
+};
+
+#define tempreature_submenu_options 4
+#define tempreature_submenu_exit 4
+char read_tempreature_submenu_options[] =
+{
+  '3', 'b', 'e', 't','a',
+  '2', 'e', 'n',
+  '4', 'd', 'e', 'e', 'n',
+  '4', 'p', 'u', 'e', 'r',
 };
 
 unsigned long pr_timer;
@@ -103,7 +111,7 @@ void setup() {
 
 
 
-  get_menu_options_endpoints();
+  get_main_menu_options_endpoints();
   get_menu_options_endpoint_distance();
 
   Serial.println(find_EEPROM_endpoint());

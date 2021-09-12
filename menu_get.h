@@ -1,4 +1,4 @@
-void get_menu_options_endpoints()
+void get_main_menu_options_endpoints()
 {
 
   int c = 0;
@@ -40,13 +40,14 @@ do{
 }
 
 
-void read_out_menu()
+void write_out_menu() //menu_options, read_menu_options
 {
   display.clearDisplay();
   display.setTextSize(2);
   display.setTextColor(SSD1306_WHITE);
   
  int a=1; int b=0; int c=0; int n=0;b=b+menu_scroll_offset;
+ 
   do
   {
      display.setCursor(8, c);
