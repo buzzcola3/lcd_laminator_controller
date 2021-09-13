@@ -14,13 +14,15 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 #define rps 30 //display and pressure refreshes per second
 
 
-#define menu_options 5
-#define menu_exit 5
+#define menu_options 7
+#define menu_exit 7
 char read_menu_options[] =
 {
   '2', 'o', 'n',
   '4', 'd', 'e', 'e', 'z',
+  '2', 'o', 'n',
   '4', 'n', 'u', 't', 'z',
+  '2', 'o', 'n',
   '1', 'u',
   '4', 'e', 'x', 'i', 't',
 };

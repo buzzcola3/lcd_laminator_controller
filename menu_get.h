@@ -40,22 +40,22 @@ do{
 }
 
 
-void write_out_menu() //menu_options, read_menu_options
+void write_out_menu(char g_read_menu_options[], int g_menu_start_read_pos[],int g_menu_options_lenght[], int g_menu_options, int g_menu_scroll_offset, int g_menu_scroll_offset_inv) //menu_options, read_menu_options
 {
   display.clearDisplay();
   display.setTextSize(2);
   display.setTextColor(SSD1306_WHITE);
   
- int a=1; int b=0; int c=0; int n=0;b=b+menu_scroll_offset;
+ int a=1; int b=0; int c=0; int n=0;b=b+g_menu_scroll_offset;
  
   do
   {
      display.setCursor(8, c);
      c = c + 16;
-     do{display.print(read_menu_options[menu_start_read_pos[b]+a]); a=a+1;//}
-     }while(a!=menu_options_lenght[b]+1);display.println();a=1;b=b+1;
+     do{display.print(g_read_menu_options[g_menu_start_read_pos[b]+a]); a=a+1;//}
+     }while(a!=g_menu_options_lenght[b]+1);display.println();a=1;b=b+1;
   }
-  while (b-menu_scroll_offset < (menu_options-menu_scroll_offset)-menu_scroll_offset_inv);
+  while (b-g_menu_scroll_offset < (g_menu_options-g_menu_scroll_offset)-g_menu_scroll_offset_inv);
 }
 
 void write_cursor_to_screen()

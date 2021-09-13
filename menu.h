@@ -17,7 +17,7 @@ void menu()
   menu_selection_tracker = cursor_position_on_display + menu_scroll_offset;
   menu_scroll_offset_inv = ((menu_scroll_offset) * (-1))-(4-menu_options);
 
-  write_out_menu();
+  write_out_menu(read_menu_options, menu_start_read_pos, menu_options_lenght , menu_options, menu_scroll_offset, menu_scroll_offset_inv);
   write_cursor_to_screen();
 
 }
