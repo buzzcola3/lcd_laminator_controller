@@ -88,7 +88,7 @@ void input_check_handler()
       previous_button_action = button_action;
       button_action = '0';
     }
-    if (open_menu == true && menu_selection_tracker < menu_options) {
+    if (open_menu == true && menu_selection_tracker < main_menu_options) {
       cursor_position_on_display = cursor_position_on_display + 1;
       previous_button_action = button_action;
       button_action = '0';

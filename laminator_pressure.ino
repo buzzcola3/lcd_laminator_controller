@@ -14,9 +14,9 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 #define rps 30 //display and pressure refreshes per second
 
 
-#define menu_options 7
+#define main_menu_options 7
 #define menu_exit 7
-char read_menu_options[] =
+char main_menu_option_text[] =
 {
   '2', 'o', 'n',
   '4', 'd', 'e', 'e', 'z',
@@ -59,10 +59,10 @@ unsigned long value_add_timer;
 bool open_menu;
 int cursor_position_on_display;
 int menu_scroll_offset;
-int menu_scroll_offset_inv;
 int menu_selection_tracker;
-int menu_start_read_pos[menu_options];
-int menu_options_lenght[menu_options];
+
+int main_menu_start_read_positions[main_menu_options];
+int menu_options_lenght[main_menu_options];
 
 #include "EEPROM_managment.h"
 #include "get_pressure.h"
@@ -107,7 +107,6 @@ void setup() {
   open_menu = false;
   cursor_position_on_display = 1;
   menu_scroll_offset = 0;
-  menu_scroll_offset_inv = 0;
   menu_selection_tracker = 0;
   //menu_timer
 
