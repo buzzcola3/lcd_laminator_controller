@@ -6,22 +6,24 @@ void get_main_menu_options_endpoints()
   int n = 0;
 
   main_menu_start_read_positions[n] = e;
-  n = n + 1;
   Serial.println(e);
+  n = n + 1;
 
   c = main_menu_option_text[0] - 47;
   e = e + c; //5
   main_menu_start_read_positions[n] = e;
-  n = n + 1;
   Serial.println(e);
+  n = n + 1;
+
 
   do
   {
     c = main_menu_option_text[e] - 47;
     e = e + c;
     main_menu_start_read_positions[n] = e;
-    n = n + 1;
     Serial.println(e);
+    n = n + 1;
+    
   }
   while (n != main_menu_options + 1);
 
@@ -55,8 +57,16 @@ void write_out_menu(char read_menu_options[], int menu_start_read_pos[],int g_me
   {
      display.setCursor(8, c);
      c = c + 16;
-     do{display.print(read_menu_options[menu_start_read_pos[b]+a]); a=a+1;//}
+     do{display.print(read_menu_options[menu_start_read_pos[b]+a]);
+     a=a+1;
+     
      }while(a!=menu_options_lenght[b]+1);display.println();a=1;b=b+1;
+
+//Serial.println(menu_options_lenght[b]+1);
+n=n+1;
+Serial.println(menu_start_read_pos[(n)+g_menu_scroll_offset]);
+
+
   }
   while (b-g_menu_scroll_offset < (menu_options-g_menu_scroll_offset)-g_menu_scroll_offset_inv);
 

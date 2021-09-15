@@ -61,7 +61,7 @@ int cursor_position_on_display;
 int menu_scroll_offset;
 int menu_selection_tracker;
 
-int main_menu_start_read_positions[main_menu_options];
+int main_menu_start_read_positions[main_menu_options+1];
 int menu_options_lenght[main_menu_options];
 
 #include "EEPROM_managment.h"
