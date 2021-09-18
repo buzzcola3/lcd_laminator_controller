@@ -1,13 +1,23 @@
+//#include "PinChangeInterrupt"
 void press_detect() //D2-interrupt D7-transistor A7-analog value
 {
   detachInterrupt(INT0);
   press_detected = true;
 };
 
+void simulator(){
+  pinMode(10, INPUT_PULLUP); //.sim
+  pinMode(11, INPUT_PULLUP); //.sim
+  pinMode(12, INPUT_PULLUP); //.sim
+  attachInterrupt(INT0, press_detect, FALLING); //.sim
+  attachInterrupt(INT1, press_detect, FALLING); //.sim
+}
+
 void button_input_leadout()
 {
   Serial.println("leadout");
-  attachInterrupt(INT0, press_detect, RISING);
+  attachInterrupt(INT0, press_detect, FALLING);
+  attachInterrupt(INT1, press_detect, FALLING); //.sim
   button_hold = false;
   button_hold_multiplier = 0;
   previous_button_action = '0';
@@ -20,13 +30,13 @@ void button_input_leadin()
   Serial.println("leadin");
   digitalWrite(7, HIGH);
   //Serial.println(analogRead(A7));
-  if (analogRead(A7) > 1000) {
+  if (digitalRead(10) == 0) {
     button_action = '-';
   };
-  if (analogRead(A7) < 850 && analogRead(A7) > 750) {
+  if (digitalRead(11) == 0) {
     button_action = 'K';
   };
-  if (analogRead(A7) < 550 && analogRead(A7) > 450) {
+  if (digitalRead(12) == 0) {
     button_action = '+';
   };
 
@@ -35,20 +45,21 @@ void button_input_leadin()
   // Serial.println(button_action);
   press_detected = false;
   button_hold = true;
-  attachInterrupt(INT0, button_input_leadout, FALLING);
+  attachInterrupt(INT0, button_input_leadout, RISING);
+  attachInterrupt(INT1, button_input_leadout, RISING);
 };
 
 recheck_hold()
 {
   //char ch='0';
   digitalWrite(7, HIGH);
-  if (analogRead(A7) > 1000) {
+  if (digitalRead(10) == 0) {
     button_action = '-';
   };
-  if (analogRead(A7) < 850 && analogRead(A7) > 750) {
+  if (digitalRead(11) == 0) {
     button_action = 'K';
   };
-  if (analogRead(A7) < 550 && analogRead(A7) > 450) {
+  if (digitalRead(12) == 0) {
     button_action = '+';
   };
   digitalWrite(7, LOW);
@@ -108,7 +119,7 @@ void input_check_handler()
     };
   }
 
-  if (button_hold == true && button_hold_multiplier == 0 && button_action == 'K')
+  if (button_hold == true && button_action == '+')
   { if (open_menu == false && millis() - button_timer >= 600) {
       cursor_position_on_display = 1;
       menu_selection_tracker = 1;

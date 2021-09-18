@@ -1,3 +1,4 @@
+
 void menu()
 {
 
@@ -17,7 +18,7 @@ void menu()
   menu_selection_tracker = cursor_position_on_display + menu_scroll_offset;
   
 
-  write_out_menu(main_menu_option_text, main_menu_start_read_positions, menu_options_lenght , main_menu_options, menu_scroll_offset);
-  write_cursor_to_screen(cursor_position_on_display);
+  write_out_menu(main_menu_option_text, main_menu_start_read_positions, main_menu_options, menu_scroll_offset);
+  write_cursor_to_screen(cursor_position_on_display, main_menu_options);
 
 }

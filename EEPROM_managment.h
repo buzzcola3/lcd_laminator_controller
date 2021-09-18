@@ -19,7 +19,7 @@ do{
   
    }
   while(i<1024);
-  Serial.println("GO");
+  //Serial.println("GO");
 
   if(i>1024){return 0;};
   
