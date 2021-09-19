@@ -60,6 +60,7 @@ bool open_menu;
 int cursor_position_on_display;
 int menu_scroll_offset;
 int menu_selection_tracker;
+int display_update_tracker;
 
 int main_menu_start_read_positions[main_menu_options+1];
 
@@ -110,12 +111,12 @@ simulator();
   cursor_position_on_display = 1;
   menu_scroll_offset = 0;
   menu_selection_tracker = 0;
-  //menu_timer
+  display_update_tracker = 0;
 
 
 
 
-  get_menu_options_endpoint_distance();
+  get_menu_options_endpoint_distance(main_menu_options, main_menu_option_text);
 
   Serial.println(find_EEPROM_endpoint());
 }

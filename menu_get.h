@@ -2,23 +2,23 @@
 
 
 
-void get_menu_options_endpoint_distance()
+void get_menu_options_endpoint_distance(int menu_options, char menu_option_text[])
 {
-  int menu_options_lenght[main_menu_options];
+  int menu_options_lenght[menu_options];
   int i = 0;
   int a = 0;
   int n = 0;
 
   do
   {
-    a = main_menu_option_text[i] - 47;
+    a = menu_option_text[i] - 47;
     
     main_menu_start_read_positions[n] = i;
     Serial.println(i);
     n = n + 1;
     i = i + a;
   }
-  while (n != main_menu_options + 1);
+  while (n != menu_options + 1);
   i = 0;
   a = 0;
 

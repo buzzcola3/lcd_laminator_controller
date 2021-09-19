@@ -23,7 +23,7 @@ do{
 
   if(i>1024){return 0;};
   
-  do{i=i-1; sanity++; e=EEPROM.read(i);if(sanity>3){break;};}while(e!='E');
+  do{i=i-1; sanity++; e=EEPROM.read(i);if(sanity>3){(i=i+sanity+1); break;};}while(e!='E');
 }
 while(e!='E' && e+1!='n' && e+2!='d' && e+3!='%');
 
