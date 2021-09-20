@@ -14,7 +14,6 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 #define rps 30 //display and pressure refreshes per second
 
 
-#define main_menu_options 7
 #define menu_exit 7
 char main_menu_option_text[] =
 {
@@ -27,7 +26,6 @@ char main_menu_option_text[] =
   '4', 'e', 'x', 'i', 't',
 };
 
-#define tempreature_submenu_options 4
 #define tempreature_submenu_exit 4
 char read_tempreature_submenu_options[] =
 {
@@ -128,9 +126,9 @@ void loop() {
       display_homescreen();
     } else(menu());
     input_check_handler();
-    Serial.println(menu_selection_tracker);
-    Serial.print("open_menu:");
-    Serial.println(open_menu);
+    //Serial.println(menu_selection_tracker);
+    //Serial.print("open_menu:");
+    //Serial.println(open_menu);
   }
 
 

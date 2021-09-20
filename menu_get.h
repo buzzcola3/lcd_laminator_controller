@@ -33,13 +33,19 @@ do{
 }
 
 
-void write_out_menu(char read_menu_options[], int menu_start_read_pos[], int menu_options, int g_menu_scroll_offset) //menu_options, read_menu_options
+void write_out_menu(char read_menu_options[], int menu_start_read_pos[], int g_menu_scroll_offset) //menu_options, read_menu_options
 {
   display.clearDisplay();
   display.setTextSize(2);
   display.setTextColor(SSD1306_WHITE);
 
-  int g_menu_scroll_offset_inv = ((g_menu_scroll_offset) * (-1))-(4-menu_options);
+int menu_options=0 ;
+do{menu_options++;} while (menu_start_read_pos[menu_options+1] > menu_start_read_pos[menu_options]);
+Serial.print(menu_options);
+Serial.println(":E");
+
+
+ int g_menu_scroll_offset_inv = ((g_menu_scroll_offset) * (-1))-(4-menu_options);
   
  int a=1; int b=0; int c=0; int n=0;b=b+g_menu_scroll_offset;
  
